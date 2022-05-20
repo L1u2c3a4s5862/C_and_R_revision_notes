@@ -1,4 +1,4 @@
-# R and C/C++ notes for exam on $23^{rd} of May$
+# R and C/C++ notes for exam on 23^rd^ of May
 
 # C/C++
 1. [I/O device](https://www.techtarget.com/whatis/definition/input-output-I-O)
