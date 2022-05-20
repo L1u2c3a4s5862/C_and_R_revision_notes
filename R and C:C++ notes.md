@@ -111,7 +111,7 @@ free(number) //don't forget to free the memory after finish using this variable
 you have to free the heap memory at the end of script
 
 ### euclidean distance
-equation: $dist(a, b) = \sqrt{\sum_{k=1}^{K}\left ( a_{k} - b_{k} \right )^{2}}$
+$$dist(a, b) = \sqrt{\sum_{k=1}^{K}\left ( a_{k} - b_{k} \right )^{2}}$$
 code in R
 ```R
 n = 100
@@ -308,7 +308,7 @@ dist4 = function(a, b){
 ```
 
 ### pair-wise distance in R
-equation: $dist(a, b) := \left ( \sum_{k}^{}\left| a_{k}-b_{k}\right|^{p} \right )^{\frac{1}{p}}$
+$$dist(a, b) := \left ( \sum_{k}^{}\left| a_{k}-b_{k}\right|^{p} \right )^{\frac{1}{p}}$$
 ```r
 #version 1
 pdist1 = function(A, B){
