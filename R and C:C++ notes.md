@@ -1,4 +1,4 @@
-# R and C/C++ notes for exam on 23rd of May
+# R and C/C++ notes for exam on 23^rd^ of May
 
 # C/C++
 1. [I/O device](https://www.techtarget.com/whatis/definition/input-output-I-O)
@@ -257,6 +257,15 @@ typedef struct __class__ class;
 ```
 
 ## R programming
+### start and end time in R
+```r
+start = Sys.time()
+# code block here
+end = Sys.time()
+final_time = end - start
+cat("this block of code takes ",final_time,"s")
+```
+
 ### levels of vectorization
 ```r
 #level 1
@@ -326,6 +335,46 @@ pdist2 = function(A, B){
 	return(D)
 }
 ```
+
+### drawing an arrow in plot in R
+```r
+set.seed(1) 
+
+update <- function(x,v){
+	v[(x[,1] > 5 | x[,1] < -5),1] = -v[(x[,1] > 5 | x[,1] < -5),1]
+	v[(x[,2] > 5 | x[,2] < -5),2] = -v[(x[,2] > 5 | x[,2] < -5),2]
+	x <- x + v
+	return(list(x,v))
+}
+
+x <- matrix(runif(50*2,-1,1), nrow = 50)
+v <- matrix(runif(50*2,-.5,.5), nrow = 50)
+
+while(T){
+	plot(c(-5,5),c(-5,5), type = "n", xlab = "x1", ylab = "x2")
+	points(x[,1], x[,2], col = 'red', lwd = 0, pch = 16)
+	arrows(x[,1], x[,2], x[,1] + v[,1], x[,2] + v[,2], length = .05 , col = "green")
+	title("particle simulation. Press ESC to stop")  
+
+	xv <- update(x,v)
+
+	print(x)
+	print(v)
+	x<- xv[[1]]
+	v<- xv[[2]]
+
+	Sys.sleep(.1)
+}
+```
+`arrows` does the job for ploting an arrow into the graph, normally to show the direction of the particals, in this code, `arrows` is for showing the velocity of the ball/partical
+
+### calculating angle in R
+```r
+angle = function(A, B){
+	return(acos(v1%*%v2/dist(v1,0)/dist(v2,0))/2/pi*360)
+}
+```
+`acos` is stand for $arccos$ in math, type `?acos` for more information
 
 ## mock exam paper
 ### print the following output in C
